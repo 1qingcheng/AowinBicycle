@@ -1,11 +1,11 @@
-<!DOCTYPE html>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title></title>
-	<link rel="stylesheet" href="css/reset.css">
-	<link rel="stylesheet" href="css/public.css">
+	<link rel="stylesheet" href="/css/reset.css">
+	<link rel="stylesheet" href="/css/public.css">
 </head>
 <body>
 <div class="public-header-warrp">
@@ -64,10 +64,10 @@
 					</div>
 				</li>
 				<li class="public-ifame-item">
-					<a href="javascript:;">信息管理</a>
+					<a href="javascript:;">租车与还车</a>
 					<div class="ifame-item-sub">
 						<ul>
-							<li><a href="信息管理/article_manage.html" target="content">列表管理</a>|<a href="信息管理/article_add.html" target="content">添加</a></li>
+							<li><a href="自行车租赁归还/bicycleRent.jsp" target="content">租车</a></li>
 							<li><a href="信息管理/cate_manage.html" target="content">分类管理</a></li>
 						</ul>
 					</div>

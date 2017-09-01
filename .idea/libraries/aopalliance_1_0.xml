@@ -26,6 +26,9 @@
       <root url="jar://$PROJECT_DIR$/lib/spring-tx-4.2.4.RELEASE.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/spring-web-4.2.4.RELEASE.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/spring-webmvc-4.2.4.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jsp-api.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jstl.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/servlet-api.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
