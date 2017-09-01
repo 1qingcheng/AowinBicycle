@@ -1,7 +1,6 @@
 package dao;
 
 import model.BicyclePile;
-
 import java.util.List;
 
 public interface BicyclePileMapper {
