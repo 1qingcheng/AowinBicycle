@@ -67,7 +67,7 @@
 					<a href="javascript:;">租车与还车</a>
 					<div class="ifame-item-sub">
 						<ul>
-							<li><a href="自行车租赁归还/bicycleRent.jsp" target="content">租车</a></li>
+							<li><a href="/getAllStation.do" target="content">租车</a></li>
 							<li><a href="信息管理/cate_manage.html" target="content">分类管理</a></li>
 						</ul>
 					</div>

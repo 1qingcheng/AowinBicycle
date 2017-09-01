@@ -3,17 +3,19 @@ package controller;
 import model.BicycleStation;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import service.BicycleStationInter;
 import service.BicycleStationService;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Controller
 public class BicycleStationController {
     @Resource
-    private BicycleStationService bicycleStationService;
+    private BicycleStationInter bicycleStationService;
 
-    public BicycleStationService getBicycleStationService() {
+    public BicycleStationInter getBicycleStationService() {
         return bicycleStationService;
     }
 
@@ -22,10 +24,11 @@ public class BicycleStationController {
     }
 
     //查询得到所有的车点
-    @RequestMapping()
-    public String getAllStation(){
-        List<BicycleStation> list = bicycleStationService.getAllStation();
-        return"/自行车租赁归还/bicycleRent.jsp"+list;
+    @RequestMapping("/getAllStation.do")
+    public String getAllStation(HttpServletRequest request){
+        List<BicycleStation> stationList = bicycleStationService.getAllStation();
+        request.setAttribute("stationList",stationList);
+        return"/自行车租赁归还/choseStaion.jsp";
     }
 
 }

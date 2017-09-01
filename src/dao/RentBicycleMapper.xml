@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="dao.RentBicycleMapper">
+
+    <select id="verifyCardCode" resultType="model.Card" parameterType="String">
+        SELECT * FROM CARD WHERE card_code=#{card_code}
+    </select>
+
+    <select id="verifyCardMoney" resultType="double" parameterType="model.Card">
+        SELECT (frozen_money+wallet_money) money FROM card WHERE card_id=#{card_id}
+    </select>
+    <select id="verifyAlreadyRent" resultType="model.BicycleInfo" parameterType="int">
+        SELECT * FROM BICYCLE_INFO WHERE card_id=#{card_id}
+    </select>
+</mapper>

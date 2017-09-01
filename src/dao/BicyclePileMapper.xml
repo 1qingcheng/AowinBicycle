@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="BicyclePileMapper">
+<mapper namespace="dao.BicyclePileMapper">
 
     <insert id="addBicyclePile" parameterType="model.BicyclePile">
         INSERT INTO BICYCLE_PILE(vender_id,pile_code,station_id,status,install_time,disassembly,user_id,operator_time,bicycle_id,remark) VALUES
@@ -8,4 +8,8 @@
             (#{p.vender_id},#{p.pile_code},#{p.station_id},#{p.status},#{p.install_time},#{p.disassembly},#{p.user_id},#{p.operator_time},#{p.bicycle_id},#{p.remark})
         </foreach>
     </insert>
+
+    <select id="getPileByStation" resultType="model.BicyclePile" parameterType="String">
+        SELECT * FROM BICYCLE_PILE WHERE station_id=#{station_id} and status='1'
+    </select>
 </mapper>

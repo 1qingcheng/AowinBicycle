@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="VenderMapper">
+<mapper namespace="dao.VenderMapper">
 
     <insert id="addVender" parameterType="model.Vender" >
         INSERT INTO VENDER(vender_code,vender_type,vender_name,address,telphone,contacts,product_license,bussiness_registration_no,registered_capital,user_id,create_time,zxbj,remark) values(#{vender_code},#{vender_type},#{vender_name},#{address},#{telphone},#{contacts},#{product_license},#{bussiness_registration_no},#{registered_capital},#{user_id},#{create_time},#{zxbj},#{remark})
