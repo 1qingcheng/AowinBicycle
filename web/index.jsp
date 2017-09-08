@@ -59,7 +59,7 @@
 							<li class="active"><a href="系统管理/config.html" target="content">网站配置</a></li>
 							<li><a href="系统管理/admin_music.html" target="content">背景音乐管理</a></li>
 							<li><a href="系统管理/admin_cardTemplate.html" target="content">名片模板管理</a></li>
-							<li><a href="系统管理/index_tj.html" target="content">首页推荐导航</a></li>
+							<li><a href="/getAllVender.do" target="content">供应商管理</a></li>
 						</ul>
 					</div>
 				</li>
@@ -67,8 +67,8 @@
 					<a href="javascript:;">租车与还车</a>
 					<div class="ifame-item-sub">
 						<ul>
-							<li><a href="/getAllStation.do" target="content">租车</a></li>
-							<li><a href="信息管理/cate_manage.html" target="content">分类管理</a></li>
+							<li><a href="/getAllStation.do?message=rent" target="content">租车</a></li>
+							<li><a href="/getAllStation.do?message=return" target="content">还车</a></li>
 						</ul>
 					</div>
 				</li>
@@ -98,7 +98,7 @@
 		</div>
 		<!-- 右侧内容展示部分 -->
 		<div class="public-ifame-content">
-		<iframe name="content" src="main.html" frameborder="0" id="mainframe" scrolling="yes" marginheight="0" marginwidth="0" width="100%" style="height: 700px;"></iframe>
+		<iframe name="content" src="main.html" frameborder="0" id="mainframe" scrolling="yes" marginheight="0" marginwidth="0" width="100%" style="height: 1000px;"></iframe>
 		</div>
 	</div>
 </div>

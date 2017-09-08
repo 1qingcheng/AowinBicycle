@@ -37,7 +37,10 @@
     </update>
 
 
-    <select id="getAllStation" resultType="model.BicycleStation">
-        SELECT * FROM BICYCLE_STATION
+    <select id="getAllStation" resultType="model.BicycleStation" parameterType="model.Page">
+        SELECT * FROM BICYCLE_STATION limit #{start},#{pageSize}
+    </select>
+    <select id="getStationCount" resultType="java.lang.Integer">
+        SELECT count(*) total FROM BICYCLE_STATION
     </select>
 </mapper>

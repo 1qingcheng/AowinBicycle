@@ -1,6 +1,7 @@
 package service;
 import dao.BicycleStationMapper;
 import model.BicycleStation;
+import model.Page;
 import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import java.util.List;
@@ -19,8 +20,15 @@ public class BicycleStationService implements BicycleStationInter {
     }
 
     @Override
-    public List<BicycleStation> getAllStation() {
-        List<BicycleStation> list = bicycleStationMapper.getAllStation();
+    public int getStationCount(Page page) {
+        int total=bicycleStationMapper.getStationCount();
+        int totalPage=total % page.getPageSize() == 0 ? total / page.getPageSize() : total / page.getPageSize() + 1;
+        return totalPage;
+    }
+
+    @Override
+    public List<BicycleStation> getAllStation(Page page) {
+        List<BicycleStation> list = bicycleStationMapper.getAllStation(page);
         return list;
     }
 }

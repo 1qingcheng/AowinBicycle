@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="dao.ReturnBicycleMapper">
+
+    <select id="getBicycleRecord" resultType="model.BicycleRecord" parameterType="model.Card">
+        SELECT * FROM BICYCLE_RECORD WHERE CARD_ID=#{card_id} and RETURN_TIME is null and RETURN_PILE_ID is null
+    </select>
+    <select id="getBicycleInfo" resultType="model.BicycleInfo" parameterType="model.Card">
+        SELECT * FROM BICYCLE_INFO WHERE CARD_ID=#{card_id}
+    </select>
+
+    <update id="updateBicycleRecord" parameterType="model.BicycleRecord">
+        UPDATE BICYCLE_RECORD SET RETURN_TIME=#{return_time},RETURN_PILE_ID=#{return_pile_id},MONEY=#{money},REMARK=#{remark} WHERE RECORD_ID=#{record_id}
+    </update>
+    <update id="updatePile">
+        UPDATE BICYCLE_PILE SET STATUS="1",BICYCLE_ID=#{bicycle_code},REMARK="have bicycle" WHERE pile_id=#{pile_id}
+    </update>
+
+    <insert id="addBicycleDeal" parameterType="model.BicycleDeal" keyProperty="deal_id" useGeneratedKeys="true">
+        INSERT INTO BICYCLE_DEAL(create_time,deal_name,deal_type,record_id,card_id,is_fee,chg_money,fee_type,bicycle_id,pile_id,user_id) VALUES (#{create_time},#{deal_name},#{deal_type},#{record_id},#{card_id},#{is_fee},#{chg_money},#{fee_type},#{bicycle_id},#{pile_id},#{user_id})
+    </insert>
+
+
+    <update id="updateCardMoney">
+        UPDATE CARD SET WALLET_MONEY=WALLET_MONEY-#{fee} WHERE CARD_ID=#{card.card_id}
+    </update>
+    <update id="updateBicycleInfo" parameterType="model.BicycleInfo">
+        UPDATE BICYCLE_INFO SET PILE_ID=#{pile_id},USER_ID=#{user_id},OPERATOR_TIME=#{operator_time},CARD_ID=null,REMARK=#{remark} WHERE CARD_ID=#{card_id}
+    </update>
+
+    <insert id="addCardRecord" parameterType="model.CardRecord">
+        INSERT INTO CARD_RECORD(CARD_ID,FEE_TYPE,CHG_MONTHLY_MONEY,CHG_WALLET_MONEY,CHG_FROZEN_MONEY,CREATE_TIME,USER_ID,REMARK,ZXBJ) VALUES (#{card_id},#{fee_type},#{chg_monthly_money},#{chg_wallet_money},#{chg_frozen_money},#{create_time},#{user_id},#{remark},#{zxbj})
+    </insert>
+
+</mapper>

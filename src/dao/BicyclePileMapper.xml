@@ -9,7 +9,13 @@
         </foreach>
     </insert>
 
-    <select id="getPileByStation" resultType="model.BicyclePile" parameterType="String">
-        SELECT * FROM BICYCLE_PILE WHERE station_id=#{station_id} and status='1'
+
+    <select id="getPileByStation" resultType="model.BicyclePile" >
+        SELECT * FROM (SELECT * FROM BICYCLE_PILE WHERE station_id=#{station_id} and status=#{condition}) pile limit #{page.start},#{page.pageSize}
     </select>
+    <select id="getPilesCount" resultType="java.lang.Integer">
+         SELECT count(*) total FROM BICYCLE_PILE WHERE station_id=#{station_id} and status=#{condition}
+    </select>
+
+
 </mapper>

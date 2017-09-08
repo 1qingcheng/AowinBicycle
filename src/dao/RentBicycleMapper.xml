@@ -12,4 +12,39 @@
     <select id="verifyAlreadyRent" resultType="model.BicycleInfo" parameterType="int">
         SELECT * FROM BICYCLE_INFO WHERE card_id=#{card_id}
     </select>
+
+    <select id="queryFrozenMoney" resultType="java.lang.Double" parameterType="model.Card">
+        SELECT FROZEN_MONEY FROM CARD WHERE card_id=#{card_id}
+    </select>
+
+    <update id="updateBicycleInfo" >
+          UPDATE BICYCLE_INFO SET pile_id=null,status='2',card_id=#{card.card_id},remark='out pile' WHERE BICYCLE_CODE=(SELECT BICYCLE_ID FROM BICYCLE_PILE WHERE PILE_ID=#{pile_id})
+    </update>
+
+
+    <update id="updatePileStatus" parameterType="int">
+        UPDATE BICYCLE_PILE SET status='2',bicycle_id=null,remark='no bicycle' WHERE pile_id=#{pile_id}
+    </update>
+
+    <update id="updateFrozenMoney" >
+        UPDATE CARD SET FROZEN_MONEY=FROZEN_MONEY+#{money},WALLET_MONEY=WALLET_MONEY-#{money} WHERE CARD_ID=#{card.card_id}
+    </update>
+
+    <insert id="addCardRecord" parameterType="model.CardRecord" useGeneratedKeys="true" keyProperty="record_id">
+        INSERT INTO CARD_RECORD(CARD_ID,FEE_TYPE,CHG_MONTHLY_MONEY,CHG_WALLET_MONEY,CHG_FROZEN_MONEY,CREATE_TIME,USER_ID,REMARK,ZXBJ) VALUES (#{card_id},#{fee_type},#{chg_monthly_money},#{chg_wallet_money},#{chg_frozen_money},#{create_time},#{user_id},#{remark},#{zxbj})
+    </insert>
+
+    <insert id="addBicycleRecord" parameterType="model.BicycleRecord" useGeneratedKeys="true" keyProperty="record_id">
+        INSERT INTO BICYCLE_RECORD(bicycle_id,card_id,rent_time,rent_pile_id) VALUES (#{bicycle_id},#{card_id},#{rent_time},#{rent_pile_id})
+    </insert>
+
+
+    <!--<select id="getBicycleInfoByPileID" resultType="model.BicycleInfo" parameterType="int">-->
+        <!--SELECT * FROM BICYCLE_INFO WHERE pile_id=#{pile_id}-->
+    <!--</select>-->
+
+    <insert id="addBicycleDeal" parameterType="model.BicycleDeal" useGeneratedKeys="true" keyProperty="deal_id">
+        INSERT INTO BICYCLE_DEAL(create_time,deal_name,deal_type,record_id,card_id,is_fee,chg_money,fee_type,bicycle_id,pile_id,user_id) VALUES (#{create_time},#{deal_name},#{deal_type},#{record_id},#{card_id},#{is_fee},#{chg_money},#{fee_type},#{bicycle_id},#{pile_id},#{user_id})
+    </insert>
+
 </mapper>

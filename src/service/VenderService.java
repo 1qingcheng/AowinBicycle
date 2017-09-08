@@ -3,9 +3,12 @@ package service;
 import dao.VenderMapper;
 import model.Vender;
 import org.springframework.stereotype.Service;
+
+import javax.annotation.Resource;
 import java.util.List;
 @Service
 public class VenderService implements VenderInter{
+    @Resource
     private VenderMapper venderMapper;
 
     public VenderMapper getVenderMapper() {
@@ -16,12 +19,32 @@ public class VenderService implements VenderInter{
         this.venderMapper = venderMapper;
     }
 
-    /**
-     * 查询供应商
-     * @return
-     */
+    //得到所有的供应商
     @Override
-    public List<Vender> query() {
-        return venderMapper.query();
+    public List<Vender> getAllVender() {
+        return venderMapper.getAllVender();
     }
+    //新增供应商
+    @Override
+    public int addVender(Vender vender) {
+        return venderMapper.addVender(vender);
+    }
+
+    //根据id查询
+    @Override
+    public Vender queryVenderById(int vender_id) {
+        return venderMapper.queryVenderById(vender_id);
+    }
+
+    //更新供应商
+    @Override
+    public int updateVender(Vender vender) {
+        return venderMapper.updateVender(vender);
+    }
+
+    //注销供应商
+    public int logout(Vender vender){
+        return venderMapper.logout(vender);
+    }
+
 }
