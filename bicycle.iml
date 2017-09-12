@@ -32,5 +32,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="aopalliance-1.0" level="project" />
     <orderEntry type="library" name="standard" level="project" />
+    <orderEntry type="library" name="jackson-all-1.9.9" level="project" />
   </component>
 </module>

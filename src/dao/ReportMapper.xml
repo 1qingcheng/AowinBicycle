@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="dao.ReportMapper">
+    <select id="getBicycleCount" resultType="java.lang.Integer">
+        SELECT COUNT(*) FROM BICYCLE_INFO WHERE status='2' or status='3'
+    </select>
+    <select id="getRentReturnCount" resultType="java.lang.Integer">
+        <![CDATA[ SELECT count(*) FROM BICYCLE_RECORD WHERE RETURN_TIME>=#{minDate} and RETURN_TIME<=#{maxDate}]]>
+    </select>
+    <select id="getRepairCount" resultType="java.lang.Integer">
+        <![CDATA[SELECT COUNT(*) FROM REPAIR_RECORD WHERE REPAIR_DATE>=#{minDate} and REPAIR_DATE<=#{maxDate} ]]>
+    </select>
+    <select id="getAvgIncomeByMonth" resultType="java.lang.Double">
+        <![CDATA[SELECT AVG(MONEY) FROM BICYCLE_RECORD WHERE RETURN_TIME>=#{minDate} and RETURN_TIME<=#{maxDate}]]>
+    </select>
+    <select id="getTotalIncomeByMonth" resultType="java.lang.Double">
+         <![CDATA[SELECT SUM(MONEY) FROM BICYCLE_RECORD WHERE RETURN_TIME>=#{minDate} and RETURN_TIME<=#{maxDate}]]>
+    </select>
+    <select id="getRepairAvg" resultType="java.lang.Double">
+        <![CDATA[SELECT AVG(FEE) FROM REPAIR_RECORD WHERE REPAIR_DATE>=#{minDate} and REPAIR_DATE<=#{maxDate}]]>
+    </select>
+    <select id="getRepairTotal" resultType="java.lang.Double">
+        <![CDATA[SELECT SUM(FEE) FROM REPAIR_RECORD WHERE REPAIR_DATE>=#{minDate} and REPAIR_DATE<=#{maxDate}]]>
+    </select>
+</mapper>

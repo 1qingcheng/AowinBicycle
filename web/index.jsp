@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
 	<meta charset="utf-8" />
@@ -11,12 +12,10 @@
 <div class="public-header-warrp">
 	<div class="public-header">
 		<div class="content">
-			<div class="public-header-logo"><a href=""><i>LOGO</i>
-			<h3>aowin</h3></a></div>
+			<div class="public-header-logo"><a href="#"><img src="/images/logo.jpg" style="height: 50px;width: 65px;"><h3 style="padding-bottom: 30px">自行车管理系统</h3></a></div>
 			<div class="public-header-admin fr">
 				<p class="admin-name">管理员 您好！</p>
 				<div class="public-header-fun fr">
-					<a href="" class="public-header-man">管理</a>
 					<a href="" class="public-header-loginout">安全退出</a>	
 				</div>
 			</div>
@@ -27,22 +26,6 @@
 <!-- 内容展示 -->
 <div class="public-ifame mt20">
 	<div class="content">
-	<!-- 内容模块头 -->
-		<div class="public-ifame-header">
-			<ul>
-				<li class="ifame-item logo">
-					<div class="item-warrp">
-						<a href="#"><i>LOGO</i>
-							<h3 class="logo-title">WorldVentures梦幻之旅</h3>
-							<p class="logo-des">创建于 2016/4/22 22:22:47</p>
-						</a>
-					</div>
-				</li>
-				<li class="ifame-item"><div class="item-warrp"><span>注册时间：2015/11/21 21:14:01<br>VIP有效期：</span></div></li>
-				<li class="ifame-item"><div class="item-warrp" style="border:none"><span>网站浏览量：15451</span></div></li>
-				<div class="clearfix"></div>
-			</ul>
-		</div>
 		<div class="clearfix"></div>
 		<!-- 左侧导航栏 -->
 		<div class="public-ifame-leftnav">
@@ -56,9 +39,6 @@
 					<a href="javascript:;">系统管理</a>
 					<div class="ifame-item-sub">
 						<ul>
-							<li class="active"><a href="系统管理/config.html" target="content">网站配置</a></li>
-							<li><a href="系统管理/admin_music.html" target="content">背景音乐管理</a></li>
-							<li><a href="系统管理/admin_cardTemplate.html" target="content">名片模板管理</a></li>
 							<li><a href="/getAllVender.do" target="content">供应商管理</a></li>
 						</ul>
 					</div>
@@ -73,23 +53,19 @@
 					</div>
 				</li>
 				<li class="public-ifame-item">
-					<a href="javascript:;">旅游套餐</a>
+					<a href="javascript:;">车点车桩维护</a>
 					<div class="ifame-item-sub">
 						<ul>
-							<li><a href="旅游管理/lytc_manage.html" target="content">信息列表</a>|<a href="#" target="content">添加</a></li>
-							<li><a href="#" target="content">分类管理</a></li>
-							<li><a href="#" target="content">分类管理</a></li>
-							<li><a href="旅游管理/listbanner.html" target="content">列表页轮播管理</a></li>
-							<li><a href="旅游管理/listbanner.html" target="content">分类轮播管理</a></li>
-							<li><a href="旅游管理/listbanner.html" target="content">旅游预订管理</a></li>
+							<li><a href="/车点车桩维护/queryStation.jsp" target="content">车点查询</a></li>
+							<li><a href="/车点车桩维护/addStation.jsp" target="content">新增车点</a></li>
 						</ul>
 					</div>
 				</li>
 				<li class="public-ifame-item">
-					<a href="javascript:;">帮助管理</a>
+					<a href="javascript:;">报表统计</a>
 					<div class="ifame-item-sub">
 						<ul>
-							<li><a href="#" target="content">信息列表</a>|<a href="#" target="content">添加</a></li>
+							<li><a href="/车辆费用统计/report.jsp" target="content">车辆费用统计</a></li>
 						</ul>
 					</div>
 				</li>
@@ -98,7 +74,7 @@
 		</div>
 		<!-- 右侧内容展示部分 -->
 		<div class="public-ifame-content">
-		<iframe name="content" src="main.html" frameborder="0" id="mainframe" scrolling="yes" marginheight="0" marginwidth="0" width="100%" style="height: 1000px;"></iframe>
+		<iframe name="content" src="/main.jsp" fpxrameborder="0" id="mainframe" scrolling="yes" marginheight="0" marginwidth="0" width="100%" style="height: 650px;"></iframe>
 		</div>
 	</div>
 </div>

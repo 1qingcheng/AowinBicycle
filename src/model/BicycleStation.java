@@ -9,7 +9,7 @@ public class BicycleStation {
     private String station_code;//车点编号
     private String station_name;//车点名称
     private double longitude;//车点经度
-    private double latitude;//车点维度
+    private double latitude;//车点纬度
     private double bicycle_pile_num;//车点车桩数量
     private String address;//地址
     private String person_in_charge;//负责人
@@ -18,6 +18,7 @@ public class BicycleStation {
     private int user_id;//操作人
     private String create_time;//创建时间
     private String remark;//备注
+    private String zxbj;//注销标记
     private List<BicyclePile> bicyclePile;//车点上的车桩集合
 
 
@@ -123,6 +124,14 @@ public class BicycleStation {
 
     public void setRemark(String remark) {
         this.remark = remark;
+    }
+
+    public String getZxbj() {
+        return zxbj;
+    }
+
+    public void setZxbj(String zxbj) {
+        this.zxbj = zxbj;
     }
 
     public List<BicyclePile> getBicyclePile() {

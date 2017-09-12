@@ -42,20 +42,8 @@
 						</tr>
 
 					</c:forEach>
-
 				</table>
-				<div class="page">
-					<form action="" method="get">
-					共<span>42</span>个站点
-						<a href="">首页</a>
-						<a href="">上一页</a>
-						<a href="">下一页</a>
-						第<span style="color:red;font-weight:600">12</span>页
-						共<span style="color:red;font-weight:600">120</span>页
-						<input type="text" class="page-input">
-						<input type="submit" class="page-btn" value="跳转">
-					</form>
-				</div>
+
 			</div>
 		</div>
 	</div>

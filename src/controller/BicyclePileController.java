@@ -5,6 +5,7 @@ import model.BicycleStation;
 import model.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import service.BicyclePileInter;
 import service.BicyclePileService;
 
@@ -50,8 +51,10 @@ public class BicyclePileController {
 
         if("1".equals(condition)){
             return "/自行车租赁/chosePile.jsp?station_id="+station_id+"&station_name="+station_name;
+        }else if("2".equals(condition)){
+            return "/自行车归还/chosePile.jsp?station_id="+station_id+"&station_name="+station_name;
         }
-        return "/自行车归还/chosePile.jsp?station_id="+station_id+"&station_name="+station_name;
+        return "/error.jsp";
     }
 
 

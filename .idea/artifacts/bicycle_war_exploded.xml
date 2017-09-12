@@ -9,6 +9,8 @@
         </element>
         <element id="directory" name="lib">
           <element id="library" level="project" name="aopalliance-1.0" />
+          <element id="library" level="project" name="standard" />
+          <element id="library" level="project" name="jackson-all-1.9.9" />
         </element>
       </element>
     </root>

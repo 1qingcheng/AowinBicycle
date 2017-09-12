@@ -3,11 +3,18 @@
 <mapper namespace="dao.BicyclePileMapper">
 
     <insert id="addBicyclePile" parameterType="model.BicyclePile">
-        INSERT INTO BICYCLE_PILE(vender_id,pile_code,station_id,status,install_time,disassembly,user_id,operator_time,bicycle_id,remark) VALUES
+        INSERT INTO BICYCLE_PILE(vender_id,pile_code,station_id,status,install_time,user_id,operator_time,bicycle_id,remark) VALUES
         <foreach collection="list" separator="," item="p">
-            (#{p.vender_id},#{p.pile_code},#{p.station_id},#{p.status},#{p.install_time},#{p.disassembly},#{p.user_id},#{p.operator_time},#{p.bicycle_id},#{p.remark})
+            (#{p.vender_id},#{p.pile_code},#{p.station_id},#{p.status},#{p.install_time},#{p.user_id},#{p.operator_time},#{p.bicycle_id},#{p.remark})
         </foreach>
     </insert>
+
+    <update id="updatePilesByStation" parameterType="java.util.List">
+        <foreach collection="list" item="pile" separator=";" index="index">
+            UPDATE BICYCLE_PILE
+            SET pile_code=#{pile.pile_code},vender_id=#{pile.vender_id},status=#{pile.status},install_time=#{pile.install_time},bicycle_id=#{pile.bicycle_id},remark=#{pile.remark} where pile_id=#{pile.pile_id}
+        </foreach>
+    </update>
 
 
     <select id="getPileByStation" resultType="model.BicyclePile" >
@@ -15,6 +22,12 @@
     </select>
     <select id="getPilesCount" resultType="java.lang.Integer">
          SELECT count(*) total FROM BICYCLE_PILE WHERE station_id=#{station_id} and status=#{condition}
+    </select>
+    <select id="getPilesByStationId" resultType="model.BicyclePile" parameterType="int">
+        SELECT * FROM BICYCLE_PILE WHERE station_id=#{station_id}
+    </select>
+    <select id="getIDMax" resultType="java.lang.Integer">
+        SELECT max()
     </select>
 
 

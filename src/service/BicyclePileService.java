@@ -4,7 +4,6 @@ import dao.BicyclePileMapper;
 import model.BicyclePile;
 import model.Page;
 import org.springframework.stereotype.Service;
-
 import javax.annotation.Resource;
 import java.util.List;
 
@@ -33,6 +32,16 @@ public class BicyclePileService implements BicyclePileInter {
         int total=bicyclePileMapper.getPilesCount(station_id,condition);
         int totalPage=total % page.getPageSize() == 0 ? total / page.getPageSize() : total / page.getPageSize() + 1;
         return totalPage;
+    }
+
+    @Override
+    public List<BicyclePile> getPilesByStationId(int station_id) {
+        return bicyclePileMapper.getPilesByStationId(station_id);
+    }
+
+    @Override
+    public int addPiles(List<BicyclePile> bicyclePiles) {
+        return bicyclePileMapper.addBicyclePile(bicyclePiles);
     }
 
 
