@@ -40,7 +40,7 @@ function goChange(obj) {
 //注销供应商
 function goLogOut(obj) {
     var vender_id=obj.parentNode.parentNode.childNodes[1].value;
-    window.location="/logout.do?vender_id="+vender_id;
+    window.location="/logoutVender.do?vender_id="+vender_id;
 }
 
 //还车输入卡号验证

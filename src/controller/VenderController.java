@@ -58,9 +58,10 @@ public class VenderController {
     }
 
     //注销供应商
-    @RequestMapping("/logout.do")
-    public String logout(Vender vender){
-        venderService.logout(vender);
+    @RequestMapping("/logoutVender.do")
+    public String logout(HttpServletRequest request){
+        String vender_id=request.getParameter("vender_id");
+        venderService.logout(vender_id);
         return "/getAllVender.do";
     }
 

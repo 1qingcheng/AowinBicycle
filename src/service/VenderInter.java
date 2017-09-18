@@ -9,5 +9,5 @@ public interface VenderInter {
     int addVender(Vender vender);
     Vender queryVenderById(int vender_id);
     int updateVender(Vender vender);
-    int logout(Vender vender);
+    int logout(String vender_id);
 }

@@ -43,8 +43,8 @@ public class VenderService implements VenderInter{
     }
 
     //注销供应商
-    public int logout(Vender vender){
-        return venderMapper.logout(vender);
+    public int logout(String vender_id){
+        return venderMapper.logout(vender_id);
     }
 
 }

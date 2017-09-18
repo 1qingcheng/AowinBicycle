@@ -42,6 +42,9 @@ public class RentBicycleController {
                 }
             }
         }
+        if("1".equals(card.getZxbj())){
+            return "您的卡已被注销";
+        }
         rentBicycleService.rentBicycle(card,Integer.valueOf(pile_id));
         return "借车成功";
 

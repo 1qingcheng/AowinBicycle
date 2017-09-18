@@ -12,15 +12,16 @@
         UPDATE VENDER SET vender_code=#{vender_code},vender_type=#{vender_type},vender_name=#{vender_name},address=#{address},telphone=#{telphone},contacts=#{contacts},product_license=#{product_license},bussiness_registration_no=#{bussiness_registration_no},registered_capital=#{registered_capital},user_id=#{user_id},create_time=#{create_time},zxbj=#{zxbj},remark=#{remark} WHERE vender_id=#{vender_id}
     </update>
 
+
     <select id="getAllVender" resultType="model.Vender">
-        SELECT * FROM Vender
+        SELECT * FROM VENDER
     </select>
 
     <select id="queryVenderById" resultType="model.Vender" parameterType="int">
         SELECT * FROM VENDER WHERE vender_id=#{vender_id}
     </select>
-
-    <update id="logout" parameterType="model.Vender">
+    <update id="logout" parameterType="string">
         UPDATE VENDER SET ZXBJ='1' WHERE vender_id=#{vender_id}
     </update>
+
 </mapper>

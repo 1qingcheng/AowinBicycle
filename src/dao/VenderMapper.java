@@ -10,5 +10,5 @@ public interface VenderMapper {
     int addVender(Vender vender);//新增供应商
     Vender queryVenderById(int vender_id);
     int updateVender(Vender vender);
-    int logout(Vender vender);
+    int logout(String vender_id);
 }
